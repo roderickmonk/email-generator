@@ -1,3 +1,4 @@
+// All interfaces, types, and enums gathered here
 
 export interface CustomerTemplateQuery {
     customerId: number,

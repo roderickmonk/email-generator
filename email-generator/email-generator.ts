@@ -7,12 +7,6 @@ import { OperationalEmailSender } from '../email-sender/operational-email-sender
 import { EmailSender } from '../email-sender/email-sender';
 
 
-type EmailSenderSignature = (email: string, content: string, something?: number) => Promise<boolean>
-
-// class EmailSender {
-//     constructor(public sender: EmailSenderSignature = emailSender) { }
-// }
-
 export class EmailGenerator {
 
     constructor(protected emailSender: EmailSender) { }
