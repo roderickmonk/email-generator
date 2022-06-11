@@ -15,7 +15,6 @@ type EmailSenderSignature = (email: string, content: string, something?: number)
 
 export class EmailGenerator {
 
-    // constructor(private emailSender = new OperationalEmailSender()) {
     constructor(protected emailSender: EmailSender) { }
 
     async sendEmail(html: string, emailEvent: EmailEvent): Promise<boolean> {

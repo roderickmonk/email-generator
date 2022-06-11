@@ -1,4 +1,4 @@
-import { EmailGenerator } from "./EmailGenerator";
+import { EmailGenerator } from "./email-generator";
 import { OperationalEmailSender } from "../email-sender/operational-email-sender";
 import { CustomerTemplate } from '../templates'
 import { EmailEvent } from "../types";
