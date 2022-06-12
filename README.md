@@ -1,4 +1,6 @@
-# Senior Software Engineer Take-home Exercise - Team Collaboration
+# Senior Software Engineer Take-home Exercise
+
+## Team Collaboration
 
 This repo contains (broadly) 2 things:
 1.  Pull Request review comments as found in file `PullRequest.ts` (this file contains both the original code and the PR review comments).
