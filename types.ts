@@ -7,7 +7,7 @@ export interface CustomerTemplateQuery {
 export enum EmailType {
     VALIDATE_ACCOUNT = "validate_account",
     PASSWORD_RESET = "password_reset",
-    RENEW_REMINDER = "validate_account",
+    RENEW_REMINDER = "renew_reminder",
     // etc.
 }
 

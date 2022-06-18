@@ -6,7 +6,7 @@
         Makes for less friction during subsequent maintenance phases.
     3.  Consider using a TypeScript 'interface' to deliver the parameters to the method 'email()'  Personally I like doing 
         so as it gives the caller an opportunity to explicityly identify the parameters s/he is referring and, further, takes 
-        away the need to pass the params in a specific order.  Agreed, there may be a small performance penalty to using an interface.
+        away the need to pass the params in a specific order.
     4.  I could be wrong here, but I am wondering if it may be a time to lay some ground work for a wider email infrastructue.
         I have in mind the following: 
             i.  I can imagine some future need to 'get templates', hence coding against a generic 'get template' interface may 

@@ -7,6 +7,7 @@ export class TestEmailSender extends EmailSender {
 
     static counter = 0
 
+    // Fail every second email
     public async send(email: string, html: string): Promise<boolean> {
 
         try {
