@@ -7,16 +7,22 @@ export class TestEmailSender extends EmailSender {
 
     static counter = 0
 
-    // Fail every second email
-    public async send(email: string, html: string): Promise<boolean> {
 
+    public async send(email: string, html: string): Promise<boolean> {
+        // First call to send succeeds
+        // Second one fails
+        // Third one throws an error
         try {
-            if (TestEmailSender.counter++ % 2 == 0) {
-                return true;
+            switch (TestEmailSender.counter++ % 3) {
+                case 0:
+                    return true;
+                case 1:
+                    return false;
+                case 2:
+                    return Promise.reject(new Error("Artificially Forced Error"));
             }
-            else {
-                return false;
-            }
+            return Promise.reject(new Error("Software Anomaly"));
+
         } catch (err) {
             return Promise.reject(err)
         }
@@ -56,6 +62,23 @@ describe('Testing Email Transmissions', function () {
 
         } catch (err) {
             return Promise.reject(new Error(err))
+        }
+    });
+
+    it('Test catch of async error', async () => {
+
+        try {
+            await (new CustomerEmailGenerator(1, new TestEmailSender()).email({
+                name: "event_name",
+                email: 'fake@test.com',
+                type: EmailType.PASSWORD_RESET
+            }));
+
+            return Promise.reject(new Error("Test should have thrown an async error"))
+
+        } catch (err) {
+            // Failing is good
+            return Promise.resolve()
         }
     });
 })
