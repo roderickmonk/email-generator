@@ -1,7 +1,7 @@
 import { EmailGenerator } from "./email-generator";
 import { OperationalEmailSender } from "../email-sender/operational-email-sender";
 import { CustomerTemplate } from '../templates'
-import { EmailEvent } from "../types";
+import { Customer, EmailEvent } from "../types";
 import ejs from 'ejs';
 
 /**
@@ -12,13 +12,13 @@ export class CustomerEmailGenerator extends EmailGenerator {
 
     private customerTemplate = new CustomerTemplate()
 
-    constructor(private customerId: number, emailSender = new OperationalEmailSender()) {
+    constructor(private customer: Customer, emailSender = new OperationalEmailSender()) {
         super(emailSender)
     }
 
     async email(emailEvent: EmailEvent): Promise<boolean> {
         try {
-            const template = await this.customerTemplate.get({ customerId: this.customerId, name: emailEvent.name });
+            const template = await this.customerTemplate.get({ customerId: this.customer.id, name: emailEvent.name });
             const html = ejs.render(template, emailEvent);
             return await super.sendEmail(html, emailEvent);
         } catch (err) {

@@ -34,7 +34,7 @@ describe('Testing Email Transmissions', function () {
     it('Test successful email send', async () => {
 
         try {
-            const result = await (new CustomerEmailGenerator(1, new TestEmailSender()).email({
+            const result = await (new CustomerEmailGenerator(Customer(1), new TestEmailSender()).email({
                 name: "event_name",
                 email: 'fake@test.com',
                 type: EmailType.PASSWORD_RESET
@@ -51,7 +51,7 @@ describe('Testing Email Transmissions', function () {
     it('Test failed email send', async () => {
 
         try {
-            const result = await (new CustomerEmailGenerator(1, new TestEmailSender()).email({
+            const result = await (new CustomerEmailGenerator(Customer(1), new TestEmailSender()).email({
                 name: "event_name",
                 email: 'fake@test.com',
                 type: EmailType.PASSWORD_RESET
@@ -68,7 +68,7 @@ describe('Testing Email Transmissions', function () {
     it('Test catch of async error', async () => {
 
         try {
-            await (new CustomerEmailGenerator(1, new TestEmailSender()).email({
+            await (new CustomerEmailGenerator(Customer(1), new TestEmailSender()).email({
                 name: "event_name",
                 email: 'fake@test.com',
                 type: EmailType.PASSWORD_RESET
@@ -82,3 +82,7 @@ describe('Testing Email Transmissions', function () {
         }
     });
 })
+
+function Customer(arg0: number): import("../types").Customer {
+    throw new Error('Function not implemented.');
+}
