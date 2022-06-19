@@ -4,10 +4,10 @@ export interface Customer {
     id: number
 }
 
-export interface CustomerTemplateQuery {
-    customerId: number,
+export interface CustomerTemplateQuery extends Customer{
     name: string
 }
+
 export enum EmailType {
     VALIDATE_ACCOUNT = "validate_account",
     PASSWORD_RESET = "password_reset",

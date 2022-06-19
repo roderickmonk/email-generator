@@ -18,7 +18,7 @@ export class CustomerEmailGenerator extends EmailGenerator {
 
     async email(emailEvent: EmailEvent): Promise<boolean> {
         try {
-            const template = await this.customerTemplate.get({ customerId: this.customer.id, name: emailEvent.name });
+            const template = await this.customerTemplate.get({ id: this.customer.id, name: emailEvent.name });
             const html = ejs.render(template, emailEvent);
             return await super.sendEmail(html, emailEvent);
         } catch (err) {
