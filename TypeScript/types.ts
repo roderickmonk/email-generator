@@ -16,8 +16,8 @@ export enum EmailType {
 }
 
 export interface EmailEvent {
-    type: EmailType,
-    name: string,
+    type: EmailType
+    name: string
     email: string
 }
 
