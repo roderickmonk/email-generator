@@ -22,5 +22,5 @@ export interface EmailEvent {
 }
 
 export interface TemplatesInterface<T> {
-    get(entity: T): void;
+    get(entity: T): Promise<string>;
 }
